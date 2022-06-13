@@ -28,7 +28,7 @@ const Car = ({ show, handleClose, cart }) => {
 
   const del = (id) =>{
     dispacht(deleteprod(id))
-    
+    alert('producto eliminado')
   }
 
 

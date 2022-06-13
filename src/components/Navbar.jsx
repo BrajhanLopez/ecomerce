@@ -18,6 +18,7 @@ const cart = useSelector(state => state.cart)
 
 
   const handleClose = () => setShow(false);
+  
   const handleShow = () => {
     const token = localStorage.getItem("token");
     dispacht(getcart());
