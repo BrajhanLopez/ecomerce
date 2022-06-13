@@ -6,7 +6,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { deleteprod, getcart, postbuy } from '../store/slices/cart.slice';
 
 
-const Car = ({ show, handleClose, cart }) => {
+const Car = ({ show, handleClose, cart,handleShow }) => {
   const navigate = useNavigate();
   let tot=0;
   //console.log(cart.data?.cart.products[0])
@@ -28,6 +28,8 @@ const Car = ({ show, handleClose, cart }) => {
 
   const del = (id) =>{
     dispacht(deleteprod(id))
+    handleShow()
+    handleShow()
     alert('producto eliminado')
   }
 
