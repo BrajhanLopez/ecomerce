@@ -11,6 +11,8 @@ const Shop = () => {
     const { id } = useParams()
     const [prod, setprod] = useState([])
     const [quantity, setquantity] = useState('1')
+    const [cont, setcont] = useState(0)
+
 
     const dispatch = useDispatch()
 
@@ -32,6 +34,14 @@ const Shop = () => {
 
     }, [id])
 
+    const plus =() =>{
+        setquantity(Number(quantity) +1)
+    }
+
+
+    const men =() =>{
+        setquantity(Number(quantity) -1)
+    }
     //console.log(prodlist);
     const adcart = () => {
         const cart = {
@@ -59,12 +69,12 @@ const Shop = () => {
                             <h5>$ {prod.price}</h5>
                         </div>
                         <div>
-                            <span className='mas'>-</span>
+                            <span className='mas' onClick={()=> men()}>-</span>
                             <input className='input-shop'  type="text"
                                 
                                 onChange={e => setquantity(e.target.value)}
                                 value={quantity} />
-                                <span className='mas'>+</span>
+                                <span className='mas' onClick={()=> plus()}>+</span>
                             {/*<button onClick={adcart}>add</button>*/}
                             
                         </div>
