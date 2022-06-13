@@ -50,4 +50,17 @@ export const getcart = () => (dispatch) => {
   };
 
 
+  export const deleteprod = (n) => (dispatch) => {
+    dispatch(setisloading(true));
+    return axios
+      .delete(`https://ecommerce-api-react.herokuapp.com/api/v1/cart/${n}`, getConfig())
+      .then(() =>{
+        dispatch(getcar())
+        //dispatch(setcart([]))
+        
+        
+      })
+      .finally(() => dispatch(setisloading(false)));
+  };
+
 export default cartslice.reducer;
