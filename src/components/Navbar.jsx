@@ -28,6 +28,18 @@ const cart = useSelector(state => state.cart)
     }
   };
 
+
+const seguri = () =>{
+  const token2 = localStorage.getItem("token");
+  if (token2) {
+    navigate("/user");
+  } else {
+    navigate("/login");
+  }
+  
+  
+}
+
   useEffect(() => {
 
     dispacht(getcart());
@@ -62,15 +74,11 @@ const cart = useSelector(state => state.cart)
           Products
         </a>
       </li>
-      <li>
-        <a href="#">
-          Log out
-        </a>
-      </li>
+     
     </ul>
     <ul>
       <li>
-        <a href="#/login">
+        <a onClick={seguri}>
         <i className="fa-solid fa-user"></i>
         </a>
       </li>

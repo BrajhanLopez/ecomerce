@@ -5,6 +5,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import {Loading, Navbar, ProtectedRoutes} from './components'
 import { useSelector } from 'react-redux'
+import User from './components/User'
 
 
 function App() {
@@ -23,10 +24,11 @@ const isloading = useSelector(state => state.isloading)
           <Route path='/shop/:id' element={<Shop />} />
          
           <Route path='/login' element={<Login />} />
-
+          <Route path='/user' element={<User />} />
 
           <Route element={<ProtectedRoutes />}>
           <Route path='/purchases' element={<Purchases />} />
+          
           </Route>
 
         </Routes>

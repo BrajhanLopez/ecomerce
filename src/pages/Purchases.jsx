@@ -18,30 +18,38 @@ const Purchases = () => {
     }, [dispacht])
 
 
-    
+
     return (
         <div>
-            <h1>purchases</h1>
+            <h1 className='p-h1'>My Purchases</h1>
 
-            <ul>
-            {
+            <ul className='ul-purchases'>
+
+                {
                     purchases?.purchases.map((p, index) => (
 
-                        <li key={index}>{p.createdAt}
-                        <ul>
-                        {
-                            p.cart.products.map((m,index)=>(
-
-                                <li key={index} onClick={()=> navigate(`/shop/${m.id}`) }>{m.price}</li>
-                            ))
-                        }
-                        </ul>
+                        <li key={index} className='p-fecha'>June - {p.createdAt.split('-')[2].substring(0, 2)}, {p.createdAt.split('-')[0]}
+                            <ul className='ul2'>
+                                {
+                                    p.cart.products.map((m, index) => (
+                                        <div key={index} className='li-pro'>
+                                            
+                                                
+                                                <li className='lii-s1 lii-s' onClick={() => navigate(`/shop/${m.id}`)}>{m.title}</li>
+                                                <li className='lii-s' onClick={() => navigate(`/shop/${m.id}`)}>{m.productsInCart.quantity}</li>
+                                                <li className='lii-s' onClick={() => navigate(`/shop/${m.id}`)}>{m.price}</li>
+                                                
+                                            
+                                        </div>
+                                    ))
+                                }
+                            </ul>
                         </li>
-                        
+
                     ))
 
                 }
-              
+
             </ul>
 
 
